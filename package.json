@@ -1,0 +1,27 @@
+{
+  "name": "album-drop-bot",
+  "description": "Tweets made up album covers",
+  "version": "1.0.0",
+  "homepage": "https://github.com/alexmcpherson/album-drop-bot",
+  "author": "Alex McPherson",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alexmcpherson/album-drop-bot.git"
+  },
+  "engines": {
+    "node": "4.2.2"
+  },
+  "dependencies": {
+    "async": "^1.5.0",
+    "lodash": "^3.10.1",
+    "twit": "^2.1.1",
+    "x-ray": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "keywords": [
+    "twitter-bot"
+  ],
+  "main": "index.js",
+  "license": "MIT"
+}
