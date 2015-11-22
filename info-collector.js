@@ -28,7 +28,7 @@ let fetchAlbumName = (cb) => {
     let explodedBandName = scrapedAlbumNameObject.albumName.replace(/[^\w\s]/g, "").split(" ");
 
     let albumTitle = explodedBandName
-      .slice(explodedBandName.length - 6, explodedBandName.length - 1)
+      .slice(explodedBandName.length - (Math.floor(Math.random() * 8) + 2), explodedBandName.length - 1)
       .join(" ")
       .toLowerCase();
 
@@ -43,18 +43,19 @@ let fetchAlbumArt = (cb) => {
     x(obj.href, {
       imageUrl: ".main-photo@src"
     })((err, artScrape) => {
-      console.log(artScrape.imageUrl);
       cb(err, artScrape.imageUrl);
     });
   });
 }
 
-module.exports = function(cb) {
+module.exports = function(cb1, cb2) {
+  console.log(cb1, cb2, "collecting info")
   async.parallel({
     bandName: fetchBandName,
     artUrl: fetchAlbumArt,
     albumTitle: fetchAlbumName
   }, (err, results) => {
-    cb(err, results);
+    console.log("Got all info");
+    cb1(err, results, cb2);
   });
 }
